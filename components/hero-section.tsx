@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { ShineBorder } from "@/components/ui/shine-border"
 import { Spotlight } from "@/components/ui/spotlight"
-import { Play, Pause } from "lucide-react"
+import { Play, Pause, Rocket, Sparkles } from "lucide-react"
 import { TooltipButton } from "@/components/TooltipButton"
 import Image from "next/image"
 import { useState, useRef } from "react"
@@ -33,13 +33,37 @@ export function HeroSection() {
             Through Blockchain Technology
           </h1>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <TooltipButton
-              variant="outline"
-              className="gap-2 rounded-xl border-white/10 bg-white/5 hover:bg-white/10"
-              tooltipText="Coming Soon"
-            >
-              Launch WebApp
-            </TooltipButton>
+            <div className="relative group mt-4 md:mt-0">
+              {/* Animated background glow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl blur opacity-60 group-hover:opacity-100 transition-all duration-300 animate-pulse" />
+
+              {/* Main button */}
+              <Button
+
+                className="relative bg-black hover:bg-black text-white font-semibold rounded-xl transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl border-0 overflow-hidden"
+                onClick={() => window.open("https://app.action-tokens.com", "_blank")}
+              >
+                {/* Animated shine effect */}
+                <div className="absolute inset-0 -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+
+                {/* Button content */}
+                <div className="relative flex items-center gap-2">
+                  <Rocket className="h-4 w-4 transition-transform group-hover:rotate-12 group-hover:scale-110" />
+                  <span className="hidden sm:inline">Launch WebApp</span>
+                  <span className="sm:hidden">Launch</span>
+                  <Sparkles className="h-3 w-3 opacity-70 group-hover:opacity-100 transition-opacity" />
+                </div>
+
+                {/* Floating particles effect */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute top-1 left-2 w-1 h-1 bg-white rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+                  <div className="absolute top-2 right-3 w-0.5 h-0.5 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                  <div className="absolute bottom-2 left-4 w-0.5 h-0.5 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
+                  <div className="absolute bottom-1 right-2 w-1 h-1 bg-white rounded-full animate-bounce" style={{ animationDelay: '0.6s' }} />
+                </div>
+              </Button>
+
+            </div>
             <TooltipButton
               variant="outline"
               className="gap-2 rounded-xl border-white/10 bg-white/5 hover:bg-white/10"
